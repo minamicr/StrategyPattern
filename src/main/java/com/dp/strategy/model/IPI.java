@@ -4,17 +4,17 @@ import com.dp.strategy.enumeration.TaxType;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ICMS implements Tax {
-  private final double ICMSTax = 0.15;
+public class IPI implements Tax {
+  private final double IPITax = 0.05;
 
   @Override
   public TaxType taxType() {
-    return TaxType.ICMS;
+    return TaxType.IPI;
   }
 
   @Override
   public double calculateTax(double value) {
-    System.out.println("Calculando ICMS com taxa de " + ICMSTax);
-    return value * ICMSTax;
+    System.out.println("Calculando IPI com taxa de " + IPITax);
+    return value * IPITax;
   }
 }

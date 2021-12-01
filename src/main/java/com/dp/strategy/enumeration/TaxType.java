@@ -1,6 +1,7 @@
 package com.dp.strategy.enumeration;
 
-public enum TipoImposto {
+public enum TaxType {
   ICMS,
-  IOF
+  IOF,
+  IPI
 }

@@ -1,20 +1,20 @@
 package com.dp.strategy.model;
 
-import com.dp.strategy.enumeration.TipoImposto;
+import com.dp.strategy.enumeration.TaxType;
 import org.springframework.stereotype.Component;
 
 @Component
-public class IOF implements Imposto {
-  private final double taxaIOF = 0.135;
+public class IOF implements Tax {
+  private final double IOFTax = 0.135;
 
   @Override
-  public TipoImposto tipoImposto() {
-    System.out.println("Calculando IOF com taxa de " + taxaIOF);
-    return TipoImposto.IOF;
+  public TaxType taxType() {
+    System.out.println("Calculando IOF com taxa de " + IOFTax);
+    return TaxType.IOF;
   }
 
   @Override
-  public double calcularImposto(double valor) {
-    return valor * taxaIOF;
+  public double calculateTax(double value) {
+    return value * IOFTax;
   }
 }
