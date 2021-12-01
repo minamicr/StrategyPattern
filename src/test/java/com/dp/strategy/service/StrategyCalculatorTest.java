@@ -1,5 +1,6 @@
 package com.dp.strategy.service;
 
+import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.BDDAssertions.then;
 
 import com.dp.strategy.enumeration.TaxType;
@@ -31,11 +32,17 @@ class StrategyCalculatorTest {
     then(valorIPI).isEqualTo(5);
   }
 
-  /*
+
   @Test
   void givenTipoImpostoInvalidoWhenCalcularThenLancarExcecao(){
-    double valor = calculadora.calcular(null, 100);
+    assertThatCode(() -> strategyCalculator.calculate(
+        null, 0)).hasMessageContaining("Tipo de imposto desconhecido");
   }
-*/
+
+  @Test
+  void givenTipoImpostoIRNaoImplementadoWhenCalcularThenLancarExcecao(){
+    assertThatCode(() -> strategyCalculator.calculate(
+        TaxType.IR, 100)).hasMessageContaining("Tipo de imposto desconhecido");
+  }
 
 }
